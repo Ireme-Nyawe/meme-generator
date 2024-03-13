@@ -36,15 +36,27 @@
     width: 100%;
     justify-content: space-between;
 }
-.meme-component input{
-    width: 45%;
-    padding: 8px;
-}
 .meme-button{
     width: 100%;
+    color: white;
     margin-top: 10px;
     padding: 10px;
     background: linear-gradient(90deg, #672280,#A818DA);
     border: 0;
     border-radius: 5px;
+    cursor: pointer;
+}
+.input-labeled input{
+    padding: 8px;
+}
+.input-labeled{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+.meme-image{
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
