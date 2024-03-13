@@ -1,5 +1,5 @@
 *{
-    font-family: arial;
+    font-family: Karla, sans-serif;
     margin: 0;
     box-sizing: border-box;
 }
@@ -13,7 +13,7 @@
 .nav{
     display: flex;
     padding: 20px;
-    background: #672280;
+    background: linear-gradient(90deg, #672280,#A818DA);
     justify-content: space-between;
     color: white;
 }
@@ -24,4 +24,27 @@
 }
 .part-1{
     display: flex;
+}
+
+/* meme-component */
+.meme-component{
+    width: 100%;
+    padding: 30px;
+}
+.meme-inputs{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.meme-component input{
+    width: 45%;
+    padding: 8px;
+}
+.meme-button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: linear-gradient(90deg, #672280,#A818DA);
+    border: 0;
+    border-radius: 5px;
 }
