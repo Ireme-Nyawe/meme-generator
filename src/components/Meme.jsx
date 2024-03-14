@@ -6,10 +6,22 @@ export default function Meme() {
   let randomNumber = Math.floor(Math.random() * memesArray.length);
   memeUrl = memesArray[randomNumber].imageUrl;
   const [memeImage, setImage] = useState(memeUrl);
+
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    memeImage:
+      "https://i.kym-cdn.com/entries/icons/original/000/013/564/doge.jpg",
+  });
+  const [allMemeImage]= useState(MemeData);
+
   function handleClick() {
     randomNumber = Math.floor(Math.random() * memesArray.length);
     memeUrl = memesArray[randomNumber].imageUrl;
-    setImage(memeUrl);
+    setMeme(prevMeme=>({
+      ...prevMeme,
+      memeImage:memeUrl
+    }));
   }
   return (
     <div className="meme-component">
@@ -27,7 +39,7 @@ export default function Meme() {
         Get a new meme image 🖼
       </button>
       <div className="">
-        <img src={memeUrl} alt="Meme-image" className="meme-image" />
+        <img src={meme.memeImage} alt="Meme-image" className="meme-image" />
       </div>
     </div>
   );
