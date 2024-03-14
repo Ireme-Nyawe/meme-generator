@@ -5,9 +5,7 @@ export default function Meme() {
   const memesArray = MemeData;
   let randomNumber = Math.floor(Math.random() * memesArray.length);
   memeUrl = memesArray[randomNumber].imageUrl;
-  const [memeImage, setImage] = useState(memeUrl);
-
-  const [meme, setMeme] = useState({
+    const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
     memeImage:
