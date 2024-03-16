@@ -60,3 +60,29 @@
     border-radius: 10px;
     margin-top: 20px;
 }
+
+.meme {
+    position: relative;
+    display: inline-block;
+}
+
+.top-text, .bottom-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: -3px -3px 0 black,  
+                  3px -3px 0 black,
+                 -3px  3px 0 black,
+                  3px  3px 0 black;
+    padding: 30px;
+    }
+
+.top-text {
+    top: 0;
+}
+
+.bottom-text {
+    bottom: 0;
+}
