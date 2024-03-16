@@ -1,31 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MemeData from "./MemeData";
 export default function Meme() {
-  let memeUrl;
-  const memesArray = MemeData;
-  let randomNumber = Math.floor(Math.random() * memesArray.length);
-  memeUrl = memesArray[randomNumber].imageUrl;
+  const [allMemes, setAllMemes] = useState([]);
+  const [memeText, setMemeText] = useState({ topText: "", bottomText: "" });
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
-    memeImage:
-      "https://i.kym-cdn.com/entries/icons/original/000/013/564/doge.jpg",
+    memeImage: "https://i.imgflip.com/1g8my4.jpg",
   });
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMemes(data.data.memes));
+  }, []);
 
-  const [memeText, setMemeText] = useState({ topText: "", bottomText: "" });
+  function handleClick() {
+    randomNumber = Math.floor(Math.random() * memesArray.length);
+    setMeme((prevMeme) => {
+      return { ...prevMeme, memeImage: allMemes[randomNumber].url };
+    });
+  }
+  // handle form data
   function handleChange(event) {
     setMemeText((prevMemeText) => {
       return { ...prevMemeText, [event.target.name]: event.target.value };
     });
-  }
-
-  function handleClick() {
-    randomNumber = Math.floor(Math.random() * memesArray.length);
-    memeUrl = memesArray[randomNumber].imageUrl;
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      memeImage: memeUrl,
-    }));
   }
   return (
     <div className="meme-component">
