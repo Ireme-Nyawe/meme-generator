@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MemeData from "./MemeData";
 export default function Meme() {
   const [allMemes, setAllMemes] = useState([]);
   const [memeText, setMemeText] = useState({ topText: "", bottomText: "" });
