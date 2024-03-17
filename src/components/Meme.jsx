@@ -6,19 +6,22 @@ export default function Meme() {
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
-    memeImage: "https://i.imgflip.com/1g8my4.jpg",
+    memeImage: "https://i.imgflip.com/1ur9b0.jpg",
   });
+  // fetch data / use effect
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes));
   }, []);
 
+  // handle generate new image click
   function handleClick() {
-    randomNumber = Math.floor(Math.random() * memesArray.length);
-    setMeme((prevMeme) => {
-      return { ...prevMeme, memeImage: allMemes[randomNumber].url };
-    });
+    const randomNumber = Math.floor(Math.random() * allMemes.length);
+    console.log(allMemes[randomNumber].url);
+    setMeme((prevMeme) => 
+      ({ ...prevMeme, memeImage: allMemes[randomNumber].url }
+    ));
   }
   // handle form data
   function handleChange(event) {
